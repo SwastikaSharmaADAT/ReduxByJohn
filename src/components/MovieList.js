@@ -7,6 +7,7 @@ import { SET_ISLOADING_STAUS,UPDATE_MOVIES_ARRAY,SET_ERROR_STATUS } from './Acti
 import Movie from './Movie';
 export const API_KEY = process.env.REACT_APP_MOVIE_API_KEY ;
 export const API_ENDPOINT = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}`;
+const DEFAULT_API_ENDPOINT = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
 
 
 const Loading = styled.div`
@@ -59,7 +60,12 @@ function MovieList({movies, isLoading, query,url,dispatch}){
   }
 
   useEffect(() =>{
-    fetchMovies(`${API_ENDPOINT}&query=${query}`) ;
+    if (query === ''){
+      fetchMovies(DEFAULT_API_ENDPOINT);
+
+    }else{
+      fetchMovies(`${API_ENDPOINT}&query=${query}`) ;
+    }
   },[query]) ;
     
     if (isLoading){

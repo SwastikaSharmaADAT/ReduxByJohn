@@ -17,7 +17,7 @@ function App() {
     movies:[],
     movie:{},
     isLoading: false,
-    query:'superman',
+    query:'',
     error:{
         status:false,
         msg:''
