@@ -1,12 +1,13 @@
 import React from 'react'
 import Form from './SearchForm'
 import MovieList from './MovieList';
-import {connect} from 'react-redux';
+import Navbar from './Navbar';
 
 const Home = () => {
     return (
       
       <main>
+        <Navbar />
         <Form /> 
         <MovieList />
       </main>
